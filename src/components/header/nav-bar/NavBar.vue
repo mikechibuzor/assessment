@@ -1,7 +1,7 @@
 <template>
   <nav>
       <!-- nav-lists desktop -->
-      <ul class="hidden xl:flex items-center text-sm font-gilroy">
+      <ul class="hidden xl:flex items-center text-sm font-gilroy-bold">
           <li class="px-4">
               <a href="#" class="text-white font-bold">Jobs</a>
           </li>
@@ -18,7 +18,7 @@
 
       <transition name="slide-fade">
         <!-- nav-lists mobile -->
-        <ul v-if="showMenu" class="fixed w-full shadow-sm bg-[#C6E3E8] left-0 top-16 flex flex-col  text-sm font-gilroy py-4">
+        <ul v-if="showMenu" class="fixed w-full shadow-sm bg-[#C6E3E8] left-0 top-16 flex flex-col  text-sm font-gilroy-bold py-4">
             <li class="px-4 mb-3">
                 <a href="#" class="text-gray-900 font-bold">Jobs</a>
             </li>

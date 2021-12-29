@@ -7,7 +7,8 @@ module.exports = {
         "secondary-orange": "#EA5566",
       },
       fontFamily: {
-        gilroy: ["gilroy", "sans-serif"],
+        "gilroy-bold": ["gilroy", "sans-serif"],
+        "gilroy-regular": ["gilroy-regular", "sans-serif"],
       },
       height: {
         height10: "10vh",
