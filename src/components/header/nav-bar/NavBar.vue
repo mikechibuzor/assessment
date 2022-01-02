@@ -12,13 +12,13 @@
               <a href="#" class="text-[#FFFFFF99] cursor-not-allowed">Find Salaries</a>
           </li>
           <li class="">
-              <button class="px-4 py-2 rounded text-primary-blue transition-all duration-300 transform hover:translate-y-0.5 bg-[#FFEDED]">Post Job</button>
+              <router-link to="/login" class="px-4 py-2 rounded text-primary-blue block transition-all duration-300 transform hover:translate-y-0.5 bg-[#FFEDED]">Post Job</router-link>
           </li>
       </ul>
 
       <transition name="slide-fade">
         <!-- nav-lists mobile -->
-        <ul v-if="showMenu" class="fixed w-full shadow-sm bg-[#C6E3E8] left-0 top-16 flex flex-col  text-sm font-gilroy-bold py-4">
+        <ul v-if="showMenu" class="absolute w-full shadow-sm bg-[#C6E3E8] left-0 top-16 flex flex-col z-50  text-sm font-gilroy-bold py-4">
             <li class="px-4 mb-3">
                 <a href="#" class="text-gray-900 font-bold">Jobs</a>
             </li>
