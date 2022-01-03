@@ -47,7 +47,7 @@
     <teleport to="#app">
         <!-- form modal -->
         <div v-if="showFormModal" class="form-modal-overlay flex items-center justify-center overflow-scroll fixed left-0 right-0 bottom-0 top-0 w-screen" @click.self="showFormModal = !showFormModal">
-            <div class="form w-3/6 bg-[#F9FBFD] h-height80 overflow-scroll px-12 rounded pt-10 py-4">
+            <div class="form w-3/6 relative bg-[#F9FBFD] h-height80 overflow-scroll px-12 rounded pt-10 py-4">
                 <form action="#">
                     <h3 class="font-gilroy-bold text-primary-blue flex items-center justify-between text-2xl tracking-widest">Front end developer {{ num }}</h3>
                     <p class="location text-gray-900 flex items-center gap-1 font-gilroy-regular tracking-widest mt-3">
@@ -102,6 +102,11 @@
                     </div>
                     
                 </form>
+                <div class="cancel cursor-pointer z-50 absolute top-5 right-5" @click="showFormModal = !showFormModal">
+                    <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.24 0.930054L7.93621 6.23255L2.63371 0.930054L0.866211 2.69755L6.16871 8.00005L0.866211 13.3026L2.63371 15.0701L7.93621 9.76755L13.24 15.0701L15.0075 13.3026L9.70496 8.00005L15.0075 2.69755L13.24 0.930054Z" fill="#3E3E40"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </teleport>

@@ -29,7 +29,9 @@
                 <a href="#" class="text-gray-400 cursor-not-allowed">Find Salaries</a>
             </li>
             <li class="px-4">
-                <button class="px-4 py-2 rounded text-white transition-all duration-300 transform hover:translate-y-0.5 bg-secondary-orange">Post Job</button>
+                <button class=" ">
+                    <router-link to="/login" class="w-full h-full px-4 py-2 rounded text-white transition-all duration-300 transform hover:translate-y-0.5 bg-secondary-orange">Post Job</router-link>
+                </button>
             </li>
         </ul>
       </transition>
