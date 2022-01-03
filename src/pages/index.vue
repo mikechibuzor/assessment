@@ -56,13 +56,13 @@
             </select>
           </div>
         </div>
-        <single-job v-for="x in 4" :id="x" :key="x" :active="activeJobContainer" @toggleActive="toggleActiveJobContainer"></single-job>
+        <single-job v-for="job in state.allJobs" :job="job" :key="job.id" :active="activeJobContainer" @toggleActive="toggleActiveJobContainer"></single-job>
       </aside>
 
       <!-- right aside -->
       <aside class="right-aside">
         <!-- job details -->
-        <job-details :num="activeJobContainer"></job-details>
+        <job-details :unique="activeJobContainer"></job-details>
       </aside>
     </main>
 
@@ -145,19 +145,37 @@
 
 import { ref } from 'vue';
 
+import { onMounted, reactive } from 'vue';
+import { useStore } from 'vuex';
+
 import TheHeader from '../components/header/TheHeader.vue';
 import SingleJob from '../components/single-job/SingleJob.vue';
 import pagination from '../components/pagination/pagination.vue';
 import TheLogo from '../components/header/logo/TheLogo.vue';
 import JobDetails from '../components/job-details/JobDetails.vue';
 
+// accessing store
+const store = useStore();
+
 // reactive variable
-const activeJobContainer = ref(1);
+const state = reactive({
+  allJobs: null,
+})
+const activeJobContainer = ref(null);
 
 // methods
-const toggleActiveJobContainer = (num)=>{
-  activeJobContainer.value = num;
+const toggleActiveJobContainer = (uniqueId)=>{
+  activeJobContainer.value = uniqueId;
 }
+
+// Lifecycle hooks
+onMounted( 
+  async ()=>{
+    await store.dispatch('job/getAlljobs');
+    state.allJobs = store.getters['job/getJobs'];
+    console.log(state.allJobs);
+    activeJobContainer.value = state.allJobs[0].id;
+  })
 </script>
 
 <style scoped>

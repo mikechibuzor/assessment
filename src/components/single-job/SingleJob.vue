@@ -1,9 +1,9 @@
 <template>
     <!-- job-container -->
-    <div :class="{'active-job-container': props.id === props.active}"  class="job-container bg-white mb-12 px-8 py-6 rounded-[10px] shadow-md">
+    <div :class="{'active-job-container': props.job.id === props.active}"  class="job-container bg-white mb-12 px-8 py-6 rounded-[10px] shadow-md">
         <h3 class="font-gilroy-bold text-primary-blue flex items-center justify-between text-2xl">
-        <span class="job-title">Front end developer</span>
-        <span class="job-salary">$2k-$5k</span>
+        <span class="job-title">{{ props.job.title }}</span>
+        <span class="job-salary">{{ props.job.salary.startsWith("N") ? props.job.salary.substring(1) : props.job.salary }}</span>
         </h3>
         <p class="location text-gray-900 flex items-center gap-1 font-gilroy-regular">
         <span class="location-icon">
@@ -13,14 +13,14 @@
             </svg>
         </span>
         <span>
-            Ikeja, Lagos
+            {{ props.job.location }}
         </span>
         </p>
         <p class="description text-gray-900 text-sm mt-2  font-gilroy-regular">
-        We seek an experienced Javascript web application developer who is proficient with React.js and has excellent communication skills.
+            {{ props.job.description }}
         </p>
         <div class="button flex items-center justify-end mt-4">
-        <button class="px-6 py-2 text-white bg-secondary-orange rounded-xl font-gilroy-bold" @click="emit('toggleActive', props.id)">See more</button>
+        <button class="px-6 py-2 text-white bg-secondary-orange rounded-xl font-gilroy-bold" @click="emit('toggleActive', props.job.id)">See more</button>
         </div>
     </div>
 </template>
@@ -29,13 +29,15 @@
 
 
 const props = defineProps({
-    id:{
-        type: Number,
-        default: 0,
-    },
+   job:{
+       type: Object,
+       default: ()=>{
+           return {}
+       }
+   },
     active:{
-        type: Number,
-        default: 0
+        type: String,
+        default: "",
     }
 })
 const emit = defineEmits(['toggleActive'])

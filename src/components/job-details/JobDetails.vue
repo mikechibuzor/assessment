@@ -1,6 +1,6 @@
 <template>
   <div class="job-details bg-white rounded-[10px] shadow-md mt-14 px-8 pt-10 pb-7">
-    <h3 class="font-gilroy-bold text-primary-blue flex items-center justify-between text-2xl tracking-widest">Front end developer {{ num }}</h3>
+    <h3 class="font-gilroy-bold text-primary-blue flex items-center justify-between text-2xl tracking-widest">Front end developer </h3>
     <p class="location text-gray-900 flex items-center gap-1 font-gilroy-regular tracking-widest mt-3">
     <span class="location-icon">
         <svg class="xl:h-4 h-3 xl:w-4 w-3" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@
         <div v-if="showFormModal" class="form-modal-overlay flex items-center justify-center overflow-scroll fixed left-0 right-0 bottom-0 top-0 w-screen" @click.self="showFormModal = !showFormModal">
             <div class="form w-3/6 relative bg-[#F9FBFD] h-height80 overflow-scroll px-12 rounded pt-10 py-4">
                 <form action="#">
-                    <h3 class="font-gilroy-bold text-primary-blue flex items-center justify-between text-2xl tracking-widest">Front end developer {{ num }}</h3>
+                    <h3 class="font-gilroy-bold text-primary-blue flex items-center justify-between text-2xl tracking-widest">Front end developer </h3>
                     <p class="location text-gray-900 flex items-center gap-1 font-gilroy-regular tracking-widest mt-3">
                     <span class="location-icon">
                         <svg class="xl:h-4 h-3 xl:w-4 w-3" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,9 +122,9 @@ import { ref } from 'vue';
 const showFormModal = ref(false);
 
 const props = defineProps({
-    num:{
-        type: Number,
-        default: 1
+    unique:{
+        type: String,
+        default: "",
     },
 });
 </script>
